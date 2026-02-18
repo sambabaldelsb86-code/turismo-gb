@@ -1,0 +1,212 @@
+/* Reset e fonte padrão */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif; 
+}
+body { scroll-behavior: smooth; 
+}
+.pagina1{
+    background-image: url("IMG/fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pagina2{
+    background-image: url("IMG/paisagem.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pagina3{
+    background-image: url("IMG/paradisiacas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pagina4{
+    background-image: url("IMG/por do sol.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pagina5{
+    background-image: url("IMG/cidade de bissau.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* bara de menu fixa */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: orange;
+    color: blue;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    z-index: 1000;
+}
+nav a {
+    color: blue;
+        font-size: 1em;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+nav a:hover { 
+    color: white; 
+        font-size: 1em;
+    transform: scale(1.1); 
+}
+
+/* Seções de página */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px 40px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+section::before {
+    content: "";
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+section .content { 
+    position: relative; 
+    z-index: 2; 
+    max-width: 1000px;
+}
+
+/* Títulos e textos */
+h1 { 
+    font-size: 3em; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 4px blue; 
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Paragrafos de textos */
+h3 { 
+    font-size: 2em; 
+    margin-bottom: 10px; 
+    text-shadow: 2px 2px 2px red; 
+    opacity: 0;
+    text-align: justify;
+    animation: fadeIn 3s forwards;
+}
+p { 
+    font-size: 1.2em; 
+    line-height: 1.6; 
+    text-shadow: 1px 1px 2px orange; 
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.card {
+    background: black;
+    color: white;
+    width: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+.card:nth-child(1){ animation-delay: 0.3s; }
+.card:nth-child(2){ animation-delay: 0.6s; }
+.card:nth-child(3){ animation-delay: 0.9s; }
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+.card img {
+    width: 320px;
+    height: 180px;
+    object-fit: cover;
+}
+.card .card-body {
+    padding: 15px;
+}
+.card .card-body h3 { margin-bottom: 10px; }
+.card .card-body p { font-size: 0.95em; }
+
+/* Galeria */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.gallery img,
+.gallery video,
+.gallery audio {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.gallery img:nth-child(1){ animation-delay: 1s; }
+.gallery img:nth-child(2){ animation-delay: 1.2s; }
+.gallery img:nth-child(3){ animation-delay: 1.4s; }
+
+footer {
+    font-size: 1em;
+    padding: 20px;
+    text-align: center;
+    background: blue;
+    color: white;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-container { flex-direction: column; align-items: center; }
+    .gallery img { width: 90%; height: auto; }
+    h1 { font-size: 2.2em; }
+    p { font-size: 1em; }
+}
